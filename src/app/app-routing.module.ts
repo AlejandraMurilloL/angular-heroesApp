@@ -4,6 +4,14 @@ import { Error404Component } from './shared/error404/error404.component';
 
 const routes: Routes = [
   {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
+  },
+  {
+    path: 'heroes',
+    loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule)
+  },
+  {
     path: '404',
     component: Error404Component
   },
@@ -16,7 +24,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    //forRoot porque son mis rutas principales
+    //forRoot porque son mis rutas principales...solo puede haber uno
     RouterModule.forRoot(routes)
   ],
   exports: [
