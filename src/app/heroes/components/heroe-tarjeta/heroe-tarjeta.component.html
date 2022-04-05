@@ -11,10 +11,10 @@
         <strong>Personajes: </strong> {{ heroe.characters }}
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button color="primary">
+        <button mat-raised-button color="primary" [routerLink]="['/heroes', heroe.id]">
             Ver más
         </button>
-        <button mat-raised-button color="warn">
+        <button mat-raised-button color="warn" [routerLink]="['/heroes/editar', heroe.id]">
             Editar
         </button>
     </mat-card-actions>
