@@ -25,7 +25,16 @@ export class HeroesService {
     return this.http.get<Heroe[]>(`${this.baseUrl}/heroes?q=${termino}&_limit=5`);
   }
 
+  saveHeroe(heroe: Heroe): Observable<Heroe> {
+    return heroe.id ? this.putHeroe(heroe)
+                    : this.postHeroe(heroe);
+  }
+
   postHeroe(heroe: Heroe): Observable<Heroe> {
     return this.http.post<Heroe>(`${this.baseUrl}/heroes`, heroe);
+  }
+
+  putHeroe(heroe: Heroe): Observable<Heroe> {
+    return this.http.put<Heroe>(`${this.baseUrl}/heroes/${heroe.id}`, heroe);
   }
 }
