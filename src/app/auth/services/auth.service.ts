@@ -21,7 +21,8 @@ export class AuthService {
   login(): Observable<Usuario> {
     return this.http.get<Usuario>(`${this.baseUrl}/usuarios/1`)
       .pipe(
-        tap(usuario => { this._usuario = usuario;})
+        tap(usuario => { this._usuario = usuario;}),
+        tap(usuario => { localStorage.setItem('id', usuario.id)})
       );
   }
 }
